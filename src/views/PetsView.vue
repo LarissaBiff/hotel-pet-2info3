@@ -1,66 +1,43 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue';
 
-const API_URL = 'http://localhost:3000'
+const API_URL = 'http://localhost:3000';
 
-const pets = ref([])
-const tutores = ref([])
+const pets = ref([]);
+const tutores = ref([]);
 
-// ve se ta carregando
-const carregando = ref(true)
-
-// guarda o erro
-const erro = ref('')
-
-// pega os dados
 async function carregarDados() {
-  try {
-    // começou a carregar
-    carregando.value = true
+  const respostaPets = await fetch(`${API_URL}/pets`);
+  pets.value = await respostaPets.json();
 
-    // pega os pets
-    const respostaPets = await fetch(`${API_URL}/pets`)
-
-    // vê se deu certo
-    if (!respostaPets.ok) {
-      throw new Error('Erro ao buscar os pets')
-    }
-
-    // pega os dados
-    pets.value = await respostaPets.json()
-
-    // pega os tutores
-    const respostaTutores = await fetch(`${API_URL}/tutores`)
-
-    // ve se deu certo
-    if (!respostaTutores.ok) {
-      throw new Error('Erro ao buscar os tutores')
-    }
-
-    // pega os dados
-    tutores.value = await respostaTutores.json()
-
-  } catch (erro) {
-    // se der erro
-    erro.value = 'Não foi possível carregar os dados.'
-
-  } finally {
-    // terminou de carregar
-    carregando.value = false
-  }
+  const respostaTutores = await fetch(`${API_URL}/tutores`);
+  tutores.value = await respostaTutores.json();
 }
 
-function nomeDoTutor(tutorId){
-  for(const tutor of tutores.value){
-    if(tutor.id === tutorId){
-      return tutor.nome
+function nomeDoTutor(tutorId) {
+  for (const tutor of tutores.value) {
+    if (tutor.id === tutorId) {
+      return tutor.nome;
     }
   }
   return 'Tutor não encontrado';
 }
 
-// roda quando abre a página
-onMounted(carregarDados)
+async function excluirPet(id){
+  //Lógica para excluir o pet
+  const confirmarExclusao = window.confirm(
+    'Deseja realmente excluir esse pet?'
+  )
+
+  if(confirmarExclusao){
+    await fetch(`${API_URL}/pets/${id}`, {
+      method: 'DELETE',
+    });
+    await carregarDados();
+  }
+}
+
+onMounted(carregarDados);
 </script>
 
 <template>
@@ -75,10 +52,13 @@ onMounted(carregarDados)
 
   <table class="table table-striped table-hover">
     <thead>
-      <th>ID</th>
-      <th>Nome</th>
-      <th>Espécie</th>
-      <th>Tutor</th>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Espécie</th>
+        <th>Tutor</th>
+        <th>Ações</th>
+      </tr>
     </thead>
     <tbody>
       <tr
@@ -89,6 +69,18 @@ onMounted(carregarDados)
         <td>{{ pet.nome }}</td>
         <td>{{ pet.especie }}</td>
         <td>{{ nomeDoTutor(pet.tutorId) }}</td>
+        <td>
+          <RouterLink
+              :to="`/pets/${pet.id}`"
+            >
+              Visualizar
+            </RouterLink>
+            <router-link 
+            :to="`/pets/${pet.id}`">
+              Excluir
+            </router-link>
+          
+        </td>
       </tr>
     </tbody>
   </table>
