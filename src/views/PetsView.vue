@@ -75,10 +75,10 @@ onMounted(carregarDados);
             >
               Visualizar
             </RouterLink>
-            <router-link 
-            :to="`/pets/${pet.id}`">
-              Excluir
-            </router-link>
+            <button @click="excluirPet(pet.id)"
+            class="btn btn-danger">
+            Excluir
+            </button>
           
         </td>
       </tr>
