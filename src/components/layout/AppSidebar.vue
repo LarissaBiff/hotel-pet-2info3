@@ -32,7 +32,7 @@ import { RouterLink } from 'vue-router';
       <router-link
         class="nav-link"
         active-class="active"
-        to="/turores/novo"
+        to="/turores"
       >
         <i
           class="bi bi-people me-2"
@@ -40,6 +40,19 @@ import { RouterLink } from 'vue-router';
         ></i>
         Tutores
     </router-link>
+
+    <router-link
+        class="nav-link"
+        active-class="active"
+        to="/tutores/novo"
+      >
+        <i
+          class="bi bi-plus-circle me-2"
+          aria-hidden="true"
+        ></i>
+        Novo tutor
+    </router-link>
+
     </div>
   </nav>
 </template>
