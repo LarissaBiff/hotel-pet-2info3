@@ -16,7 +16,7 @@ async function carregarDados() {
 }
 
 async function deletarTutor(id) {
-  const confirmarDelete = window.confirm('Deseja realmente deletar o tutor?');
+  const confirmarDelete = window.confirm('Deseja realmente deletar esse perfil de tutor?');
 
   if (!confirmarDelete) return;
 
@@ -73,7 +73,7 @@ onMounted(carregarDados);
             @click="deletarTutor(tutor.id)"
             class="btn btn-danger"
           >
-            Excluir
+            Deletar
           </button>
         </td>
       </tr>

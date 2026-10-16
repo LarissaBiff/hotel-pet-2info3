@@ -16,7 +16,7 @@ async function carregarTutores() {
   tutores.value = await resposta.json();
 }
 
-// chamando a minha API para salvar os dados de Pet
+// chamando a minha API para salvar os dados de Tutor
 const novoTutor = ref({
   nome: '',
   telefone: '',
