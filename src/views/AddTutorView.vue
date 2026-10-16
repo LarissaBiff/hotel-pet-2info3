@@ -41,8 +41,8 @@ onMounted(carregarTutores);
 <template>
   <div>
     <header class="mb-4">
-      <h1 class="text-2xl font-bold">Cadastro de Tutores</h1>
-      <p class="text-body-secondary mb-0">Cadastro de Tutores no sistema.</p>
+      <h1 class="text-2xl font-bold">Cadastrar Tutor</h1>
+      <p class="text-body-secondary mb-0">Preencha os dados para cadastrar um novo tutor.</p>
     </header>
     <!--
     <RouterLink
@@ -52,12 +52,14 @@ onMounted(carregarTutores);
       Adicionar Pet
     </RouterLink> -->
 
-    <form @submit.prevent="salvarTutor">
+    <div class="a">
+      <h3>Dados do Tutor</h3>
+      <form @submit.prevent="salvarTutor">
       <div class="col-md-6">
         <label
           for="nome"
           class="form-label"
-          >Nome do Tutor:</label
+          >Nome Completo:</label
         >
         <input
           type="text"
@@ -90,5 +92,6 @@ onMounted(carregarTutores);
         Salvar Pet
       </button>
     </form>
+    </div>
   </div>
 </template>

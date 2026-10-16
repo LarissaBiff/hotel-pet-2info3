@@ -3,22 +3,66 @@
     {
       "id": "1",
       "nome": "Ana",
-      "telefone": "47999990000"
+      "telefone": "47999990000",
+      "cpf": "14533772943",
+      "email": "anadesouza@gmail.com",
+      "data_nasc": "10/07/1989",
+      "endereco": {
+        "rua": "Maria de Alencar",
+        "bairro": "Galo",
+        "numero": "123",
+        "cidade": "Guarujá",
+        "estado": "Goiás",
+        "cep": "12345-123"
+      }
     },
     {
       "id": "3",
       "nome": "Talita",
-      "telefone": "47977770000"
+      "telefone": "47977770000",
+      "cpf": "14531234943",
+      "email": "anadesouza@gmail.com",
+      "data_nasc": "11/04/1999",
+      "endereco": {
+        "rua": "Maria de Alencar",
+        "bairro": "Galo",
+        "numero": "123",
+        "cidade": "Guarujá",
+        "estado": "Goiás",
+        "cep": "12345-123"
+      }
     },
     {
       "nome": "Luna",
-      "telefone": 46387583459,
-      "id": "yt_FdDoXKyM"
+      "telefone": "46387583459",
+      "id": "4",
+      "cpf": "12333772943",
+      "email": "anadesouza@gmail.com",
+      "data_nasc": "11/07/1959",
+      "endereco": {
+        "rua": "Maria de Alencar",
+        "bairro": "Galo",
+        "numero": "123",
+        "cidade": "Guarujá",
+        "estado": "Goiás",
+        "cep": "12345-123"
+      }
     },
     {
       "nome": "Lais",
-      "telefone": 55936543724,
-      "id": "d_yE7uyDBdg"
+      "telefone": 5,
+      "id": "d_yE7uyDBdg",
+      "cpf": "14533772989",
+      "email": "anadesouza@gmail.com",
+      "data_nasc": "11/07/1949",
+      "endereco": {
+        "rua": "Maria de Alencar",
+        "bairro": "Galo",
+        "numero": "123",
+        "cidade": "Guarujá",
+        "estado": "Goiás",
+        "cep": "12345-123"
+      }
     }
   ],
   "pets": [
