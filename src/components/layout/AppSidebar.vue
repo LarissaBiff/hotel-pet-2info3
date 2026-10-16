@@ -32,7 +32,7 @@ import { RouterLink } from 'vue-router';
       <router-link
         class="nav-link"
         active-class="active"
-        to="/turores"
+        to="/tutores"
       >
         <i
           class="bi bi-people me-2"
