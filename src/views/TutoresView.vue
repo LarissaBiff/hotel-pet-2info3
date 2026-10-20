@@ -39,12 +39,22 @@ function nomesPetsTutor(idTutor){
 
 
 async function deletarTutor(id) {
-  const confirmarDelete = window.confirm('Deseja realmente deletar esse perfil de tutor?');
 
-  if (!confirmarDelete) return;
+  if (listaPetsTutor(id).length == 0){
 
-  const resposta = await fetch(`${API_URL}/tutores/${id}`, {
-    method: 'DELETE',
+    const confirmarDelete = window.confirm('Deseja realmente deletar esse perfil de tutor?');
+
+      if (!confirmarDelete) return;
+
+  } else {
+
+    const deleteSeusPets = window.confirm('Você tem pets cadastrados, ainda sim deseja deletar esse perfil?');
+
+      if (!deleteSeusPets) return;
+  }
+    
+    const resposta = await fetch(`${API_URL}/tutores/${id}`, {
+      method: 'DELETE',
   });
 
   if (!resposta.ok) {
